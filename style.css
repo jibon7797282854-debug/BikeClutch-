@@ -1,0 +1,654 @@
+/* ==================== GLOBAL VARIABLES ==================== */
+:root {
+    --bg-dark: #0a0a0a;
+    --bg-card: rgba(20, 20, 20, 0.8);
+    --text-light: #f0f0f0;
+    --text-muted: #aaa;
+    --accent-red: #e63946;
+    --accent-red-dark: #b71c1c;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* ==================== TYPOGRAPHY ==================== */
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; margin-bottom: 1.5rem; border-left: 5px solid var(--accent-red); padding-left: 1rem; }
+h3 { font-size: 1.5rem; margin: 1.5rem 0 1rem; }
+
+/* ==================== NAVBAR ==================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--accent-red);
+    margin-left: 5px;
+}
+
+.navbar nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.navbar nav a:hover {
+    background: var(--accent-red);
+    color: #fff;
+}
+
+/* ==================== HERO SECTION ==================== */
+.hero {
+    position: relative;
+    height: 70vh;
+    background: url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #ddd;
+}
+
+.search-container {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    font-size: 1rem;
+    outline: none;
+    background: rgba(255,255,255,0.9);
+}
+
+#searchBtn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0 50px 50px 0;
+    background: var(--accent-red);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#searchBtn:hover {
+    background: var(--accent-red-dark);
+}
+
+/* ==================== FILTER SECTION ==================== */
+.filter-section {
+    padding: 2rem 5%;
+}
+
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0 2rem;
+}
+
+.filter-btn {
+    padding: 0.7rem 1.5rem;
+    background: transparent;
+    border: 2px solid var(--accent-red);
+    color: var(--text-light);
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--accent-red);
+    color: white;
+}
+
+/* ==================== BIKE GRID ==================== */
+.bike-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem 5%;
+}
+
+.bike-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.bike-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(230, 57, 70, 0.3);
+}
+
+.bike-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--accent-red);
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.bike-name {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.bike-price {
+    color: var(--accent-red);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.card-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.details-btn, .compare-btn {
+    flex: 1;
+    padding: 0.6rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    font-size: 0.95rem;
+}
+
+.details-btn {
+    background: var(--accent-red);
+    color: white;
+}
+
+.details-btn:hover {
+    background: var(--accent-red-dark);
+}
+
+.compare-btn {
+    background: transparent;
+    border: 1px solid var(--text-muted);
+    color: var(--text-light);
+}
+
+.compare-btn:hover {
+    border-color: var(--accent-red);
+    color: var(--accent-red);
+}
+
+/* ==================== AD PLACEHOLDER ==================== */
+.ad-placeholder {
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    text-align: center;
+    padding: 3rem;
+    margin: 3rem 5%;
+    border-radius: 15px;
+    border: 1px dashed var(--accent-red);
+    font-size: 1.5rem;
+    color: #ccc;
+}
+
+/* ==================== BIKE DETAIL PAGE ==================== */
+.bike-detail-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 5%;
+}
+
+.bike-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.main-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid var(--accent-red);
+}
+
+.thumbnail-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+    opacity: 1;
+    border-color: var(--accent-red);
+}
+
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: var(--glass-bg);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.specs-table tr {
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.specs-table td {
+    padding: 1rem;
+}
+
+.specs-table td:first-child {
+    font-weight: 600;
+    color: var(--accent-red);
+    width: 30%;
+}
+
+.pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.pros, .cons {
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.pros {
+    background: rgba(0, 128, 0, 0.1);
+    border-left: 5px solid green;
+}
+
+.cons {
+    background: rgba(255, 0, 0, 0.1);
+    border-left: 5px solid red;
+}
+
+.pros ul, .cons ul {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.pros li::before {
+    content: "✓ ";
+    color: green;
+    font-weight: bold;
+}
+
+.cons li::before {
+    content: "✗ ";
+    color: red;
+    font-weight: bold;
+}
+
+.expert-review {
+    background: var(--glass-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.rating-bars {
+    margin: 2rem 0;
+}
+
+.rating-item {
+    margin-bottom: 1rem;
+}
+
+.rating-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.3rem;
+}
+
+.bar {
+    height: 12px;
+    background: #333;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    background: var(--accent-red);
+    border-radius: 6px;
+}
+
+/* ==================== EMI CALCULATOR ==================== */
+.emi-calculator {
+    background: var(--glass-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 3rem 0;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ddd;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid var(--glass-border);
+    border-radius: 5px;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: 2px solid var(--accent-red);
+}
+
+button {
+    background: var(--accent-red);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+button:hover {
+    background: var(--accent-red-dark);
+}
+
+.emi-result {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #4caf50;
+}
+
+/* ==================== REVIEWS ==================== */
+.user-reviews {
+    margin-top: 3rem;
+}
+
+.review-card {
+    background: var(--glass-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--accent-red);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+}
+
+.reviewer-name {
+    font-weight: 600;
+    color: var(--accent-red);
+}
+
+.review-rating {
+    color: gold;
+}
+
+.review-date {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.review-comment {
+    line-height: 1.6;
+}
+
+/* ==================== COMPARE PAGE ==================== */
+.compare-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 5%;
+}
+
+.selectors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-end;
+    margin: 2rem 0;
+}
+
+.bike-select {
+    flex: 1;
+    min-width: 250px;
+}
+
+.bike-select select {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 5px;
+    color: var(--text-light);
+}
+
+.comparison-table {
+    background: var(--glass-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.comparison-row.header {
+    background: var(--accent-red);
+    font-weight: 600;
+}
+
+.comparison-cell {
+    padding: 1rem;
+}
+
+.comparison-cell.highlight {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+}
+
+/* ==================== ADMIN PANEL ==================== */
+.admin-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 5%;
+}
+
+#bikeForm {
+    background: var(--glass-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 3rem;
+}
+
+.bike-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--glass-bg);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--glass-border);
+}
+
+.bike-list-actions button {
+    margin-left: 0.5rem;
+    padding: 0.4rem 1rem;
+}
+
+.edit-btn {
+    background: #ffc107;
+}
+
+.edit-btn:hover {
+    background: #e0a800;
+}
+
+.delete-btn {
+    background: #dc3545;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #111;
+    color: var(--text-muted);
+    margin-top: 3rem;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .navbar nav a {
+        margin: 0 0.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .pros-cons {
+        grid-template-columns: 1fr;
+    }
+    
+    .comparison-row {
+        grid-template-columns: 1fr 1fr 1fr;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-filters {
+        justify-content: center;
+    }
+    
+    .card-actions {
+        flex-direction: column;
+    }
+}

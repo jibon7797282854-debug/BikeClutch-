@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Bikes - Bike Clutch</title>
+    <meta name="description" content="Side-by-side comparison of motorcycles: specs, price, and ratings.">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script defer src="js/data.js"></script>
+    <script defer src="js/compare.js"></script>
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Bike<span>Clutch</span></div>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="compare.html"><i class="fas fa-balance-scale"></i> Compare</a>
+            <a href="admin.html"><i class="fas fa-cog"></i> Admin</a>
+        </nav>
+    </header>
+
+    <main class="compare-container">
+        <h1>Compare Motorcycles</h1>
+        <div class="selectors">
+            <div class="bike-select">
+                <label for="bike1">Bike 1:</label>
+                <select id="bike1"></select>
+            </div>
+            <div class="bike-select">
+                <label for="bike2">Bike 2:</label>
+                <select id="bike2"></select>
+            </div>
+            <button id="compareBtn">Compare</button>
+        </div>
+
+        <div id="comparisonResult" class="comparison-table"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bike Clutch. All rights reserved.</p>
+    </footer>
+</body>
+</html>

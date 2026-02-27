@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Bike Clutch</title>
+    <meta name="description" content="Manage motorcycle listings.">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script defer src="js/data.js"></script>
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Bike<span>Clutch</span></div>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="compare.html"><i class="fas fa-balance-scale"></i> Compare</a>
+            <a href="admin.html"><i class="fas fa-cog"></i> Admin</a>
+        </nav>
+    </header>
+
+    <main class="admin-container">
+        <h1>Admin Panel</h1>
+        <section class="add-bike">
+            <h2>Add / Edit Bike</h2>
+            <form id="bikeForm">
+                <input type="hidden" id="bikeId" value="">
+                
+                <div class="form-group">
+                    <label>Bike Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Brand</label>
+                    <input type="text" id="brand" required>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="category" required>
+                        <option value="Sports">Sports</option>
+                        <option value="Cruiser">Cruiser</option>
+                        <option value="Naked">Naked</option>
+                        <option value="Electric">Electric</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Price (₹)</label>
+                    <input type="number" id="price" required>
+                </div>
+                <div class="form-group">
+                    <label>Image URL</label>
+                    <input type="url" id="image" placeholder="https://example.com/bike.jpg">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="description" rows="3"></textarea>
+                </div>
+
+                <h3>Specifications</h3>
+                <div class="form-group">
+                    <label>Engine</label>
+                    <input type="text" id="engine">
+                </div>
+                <div class="form-group">
+                    <label>Displacement</label>
+                    <input type="text" id="displacement">
+                </div>
+                <div class="form-group">
+                    <label>Power</label>
+                    <input type="text" id="power">
+                </div>
+                <div class="form-group">
+                    <label>Torque</label>
+                    <input type="text" id="torque">
+                </div>
+                <div class="form-group">
+                    <label>Mileage</label>
+                    <input type="text" id="mileage">
+                </div>
+                <div class="form-group">
+                    <label>Fuel Capacity</label>
+                    <input type="text" id="fuelCapacity">
+                </div>
+                <div class="form-group">
+                    <label>Kerb Weight</label>
+                    <input type="text" id="kerbWeight">
+                </div>
+
+                <h3>Ratings (0-5)</h3>
+                <div class="form-group">
+                    <label>Performance</label>
+                    <input type="number" id="ratingPerformance" min="0" max="5" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label>Comfort</label>
+                    <input type="number" id="ratingComfort" min="0" max="5" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label>Mileage Rating</label>
+                    <input type="number" id="ratingMileage" min="0" max="5" step="0.1">
+                </div>
+
+                <h3>Pros & Cons</h3>
+                <div class="form-group">
+                    <label>Pros (one per line)</label>
+                    <textarea id="pros" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Cons (one per line)</label>
+                    <textarea id="cons" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Expert Review</label>
+                    <textarea id="expertReview" rows="5"></textarea>
+                </div>
+
+                <button type="submit">Save Bike</button>
+                <button type="button" id="cancelEdit">Cancel</button>
+            </form>
+        </section>
+
+        <section class="bike-list">
+            <h2>Existing Bikes</h2>
+            <div id="adminBikeList"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bike Clutch. All rights reserved.</p>
+    </footer>
+</body>
+</html>

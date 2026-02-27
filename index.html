@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Clutch - Motorcycle Reviews & Comparison</title>
+    <meta name="description" content="India's professional motorcycle review and comparison platform. Compare specs, expert ratings, and user reviews.">
+    <meta name="keywords" content="motorcycle reviews, bike comparison, India bikes, specs, EMI calculator">
+    <meta name="author" content="Bike Clutch">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- JavaScript modules (deferred) -->
+    <script defer src="js/data.js"></script>
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <!-- Sticky Navbar -->
+    <header class="navbar">
+        <div class="logo">Bike<span>Clutch</span></div>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="compare.html"><i class="fas fa-balance-scale"></i> Compare</a>
+            <a href="admin.html"><i class="fas fa-cog"></i> Admin</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section with Overlay -->
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Find Your Perfect Ride</h1>
+                <p>Expert reviews, detailed specs, and unbiased comparisons</p>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search bikes...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Filter -->
+        <section class="filter-section">
+            <h2>Browse by Category</h2>
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="Sports">Sports</button>
+                <button class="filter-btn" data-category="Cruiser">Cruiser</button>
+                <button class="filter-btn" data-category="Naked">Naked</button>
+                <button class="filter-btn" data-category="Electric">Electric</button>
+            </div>
+        </section>
+
+        <!-- Featured Bikes Grid (dynamic) -->
+        <section class="featured">
+            <h2>Featured Bikes</h2>
+            <div class="bike-grid" id="featuredGrid"></div>
+        </section>
+
+        <!-- Trending Bikes Section -->
+        <section class="trending">
+            <h2>Trending Now</h2>
+            <div class="bike-grid" id="trendingGrid"></div>
+        </section>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-placeholder">
+            <p>Advertisement – Book your test ride today!</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bike Clutch. All rights reserved.</p>
+    </footer>
+
+    <!-- Hidden template for bike card (used by JS) -->
+    <template id="bike-card-template">
+        <div class="bike-card">
+            <img src="" alt="" class="bike-img" loading="lazy">
+            <div class="card-content">
+                <h3 class="bike-name"></h3>
+                <p class="bike-price"></p>
+                <div class="card-actions">
+                    <a href="#" class="details-btn">View Details</a>
+                    <button class="compare-btn"><i class="fas fa-plus"></i> Compare</button>
+                </div>
+            </div>
+        </div>
+    </template>
+</body>
+</html>
